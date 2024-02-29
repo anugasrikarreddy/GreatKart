@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = "django-insecure-u^z*_2jgcndagrfbbz$a@3!g9jqsf+4%4-wnz*6d-*q0&yv+^@
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -86,7 +84,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -105,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -117,13 +113,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+print(BASE_DIR)
 STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIRS =[
+STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
     'greatkart/static',
 ]
 
@@ -132,7 +127,6 @@ STATICFILES_DIRS =[
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
 # media files configuration
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR /'media'
+MEDIA_ROOT = BASE_DIR / 'media'
