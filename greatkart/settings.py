@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "category",
     "accounts",
     "store",
-    "carts"
+    "carts",
+    "orders",
 ]
 
 MIDDLEWARE = [
@@ -143,7 +144,7 @@ MESSAGE_TAGS = {
 # EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 # EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 # EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-
+SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
