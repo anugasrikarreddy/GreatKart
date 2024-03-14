@@ -13,6 +13,9 @@ from decouple import config
 from pathlib import Path
 import dj_database_url
 import environ
+
+from whitenoise.storage import CompressedManifestStaticFilesStorage
+
 # Initialise
 env = environ.Env()
 environ.Env.read_env()
@@ -28,13 +31,11 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
-#DEBUG = True
-
-
+# DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
-#CSRF_TRUSTED_ORIGINS =['https://']
+# CSRF_TRUSTED_ORIGINS =['https://']
 
 # Application definition
 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     "carts",
     "orders",
     "admin_honeypot",
+    "whitenoise.runserver_nostatic",
     # "storages",
 ]
 
@@ -104,7 +106,7 @@ DATABASES = {
     }
 }
 '''
-#PostgresSQL
+# PostgresSQL
 
 
 DATABASES = {
@@ -143,13 +145,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 print(BASE_DIR)
-STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
-    'greatkart/static',
+    BASE_DIR / 'static',
 ]
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -160,6 +164,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 from django.contrib.messages import constants as messages
+
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
@@ -170,4 +175,4 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
