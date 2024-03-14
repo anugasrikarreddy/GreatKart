@@ -27,14 +27,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = False
 #DEBUG = True
 
 
 
 
-ALLOWED_HOSTS = ['*']
-#CSRF_TRUSTED_ORIGINS =['https://']
+ALLOWED_HOSTS = ['bachisrikar-dev-xsee.4.us-1.fl0.io']
+CSRF_TRUSTED_ORIGINS =['https://bachisrikar-dev-xsee.4.us-1.fl0.io']
 
 # Application definition
 
