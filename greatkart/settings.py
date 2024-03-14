@@ -34,8 +34,8 @@ DEBUG = config('DEBUG', cast=bool)
 # DEBUG = True
 
 
-ALLOWED_HOSTS = ['*']
-# CSRF_TRUSTED_ORIGINS =['https://']
+ALLOWED_HOSTS = ['bachisrikar-dev-xsee.4.us-1.fl0.io']
+CSRF_TRUSTED_ORIGINS =['https://bachisrikar-dev-xsee.4.us-1.fl0.io']
 
 # Application definition
 
